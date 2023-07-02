@@ -17,7 +17,7 @@
   "keywords": [
     "koa",
     "ts",
-    "mysql"
+    "postgresql"
   ],
   "author": "",
   "license": "MIT",
@@ -26,15 +26,18 @@
   },
   "homepage": "https://github.com/lliu-student/koa-api#readme",
   "dependencies": {
+    "@prisma/client": "^4.16.2",
     "@types/dotenv": "^8.2.0",
     "@types/koa": "^2.13.6",
     "@types/koa-router": "^7.4.4",
     "@types/log4js": "^2.3.5",
+    "@types/node": "^20.3.3",
     "dotenv": "^16.3.1",
     "koa": "^2.14.2",
     "koa-router": "^12.0.0",
     "log4js": "^6.9.1",
     "mysql": "^2.18.1",
+    "prisma": "^4.16.2",
     "ts": "^0.2.2"
   },
   "devDependencies": {
