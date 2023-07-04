@@ -1,6 +1,6 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from '@prisma/client';
 
-describe("db set", () => {
+describe('db set', () => {
   const prisma = new PrismaClient();
 
   async function main() {
@@ -32,7 +32,7 @@ describe("db set", () => {
     return post;
   }
 
-  it("should sum two numbers", async () => {
+  it('should sum two numbers', async () => {
     expect(await main()).toStrictEqual([]);
   });
 });

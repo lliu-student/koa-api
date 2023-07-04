@@ -1,15 +1,15 @@
-import run from "../src";
-import { Server } from "http";
-import request from "supertest";
+import run from '../src';
+import { Server } from 'http';
+import request from 'supertest';
 
-describe("http set", () => {
+describe('http set', () => {
   let server: Server;
   beforeAll(() => {
     server = run(3000);
   });
-  it("GET/admin", () => {
+  it('GET/admin', () => {
     return request(server)
-      .get("/admin")
+      .get('/admin')
       .expect(200)
       .then((res) => {
         expect(res.body.length).toEqual(5);

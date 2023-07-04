@@ -1,5 +1,9 @@
-import jwt from "jsonwebtoken";
-import config from "../src/config";
+import jwt, {
+  JsonWebTokenError,
+  JwtPayload,
+  TokenExpiredError,
+} from 'jsonwebtoken';
+import config from '../src/config';
 
 function sign(data: any) {
   return jwt.sign(data, config.jwt.jwt_secret as string, {
@@ -7,7 +11,10 @@ function sign(data: any) {
   });
 }
 
-function verify(token: string) {
+function verify(token: string): {
+  admin: JwtPayload | string | null;
+  error: TokenExpiredError | JsonWebTokenError | null;
+} {
   try {
     const decoded = jwt.verify(token, config.jwt.jwt_secret as string);
     return {
@@ -17,12 +24,9 @@ function verify(token: string) {
   } catch (error) {
     return {
       admin: null,
-      error: error,
+      error: error as TokenExpiredError | JsonWebTokenError | null,
     };
   }
 }
 
-export default {
-  sign,
-  verify,
-};
+export { sign, verify };
